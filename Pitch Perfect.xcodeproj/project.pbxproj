@@ -13,6 +13,7 @@
 		4F475BD91AD1E8B900FCCE5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F475BD81AD1E8B900FCCE5C /* Images.xcassets */; };
 		4F475BDC1AD1E8B900FCCE5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F475BDA1AD1E8B900FCCE5C /* LaunchScreen.xib */; };
 		4F475BE81AD1E8BA00FCCE5C /* Pitch_PerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F475BE71AD1E8BA00FCCE5C /* Pitch_PerfectTests.swift */; };
+		4F475BF21AD1ECE100FCCE5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4F475BF11AD1ECE100FCCE5C /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4F475BE11AD1E8BA00FCCE5C /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F475BE61AD1E8BA00FCCE5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F475BE71AD1E8BA00FCCE5C /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
+		4F475BF11AD1ECE100FCCE5C /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = "Pitch Perfect/.gitignore"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		4F475BC31AD1E8B900FCCE5C = {
 			isa = PBXGroup;
 			children = (
+				4F475BF11AD1ECE100FCCE5C /* .gitignore */,
 				4F475BCE1AD1E8B900FCCE5C /* Pitch Perfect */,
 				4F475BE41AD1E8BA00FCCE5C /* Pitch PerfectTests */,
 				4F475BCD1AD1E8B900FCCE5C /* Products */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F475BF21AD1ECE100FCCE5C /* .gitignore in Resources */,
 				4F475BD71AD1E8B900FCCE5C /* Main.storyboard in Resources */,
 				4F475BDC1AD1E8B900FCCE5C /* LaunchScreen.xib in Resources */,
 				4F475BD91AD1E8B900FCCE5C /* Images.xcassets in Resources */,

@@ -15,11 +15,64 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPo-Je-q4t">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="microphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MUn-NE-tCz"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-GA-KS7">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Loh-GA-KS7" secondAttribute="centerX" id="BYE-fY-8c7"/>
+                            <constraint firstItem="Loh-GA-KS7" firstAttribute="top" secondItem="OPo-Je-q4t" secondAttribute="bottom" constant="8" id="ITX-mN-C7A"/>
+                            <constraint firstAttribute="centerY" secondItem="OPo-Je-q4t" secondAttribute="centerY" id="XOI-O3-CVS"/>
+                            <constraint firstAttribute="centerX" secondItem="OPo-Je-q4t" secondAttribute="centerX" id="fgV-gT-W4T"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="OPo-Je-q4t"/>
+                                <exclude reference="Loh-GA-KS7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="XOI-O3-CVS"/>
+                                <exclude reference="fgV-gT-W4T"/>
+                                <exclude reference="BYE-fY-8c7"/>
+                                <exclude reference="ITX-mN-C7A"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="OPo-Je-q4t"/>
+                                <include reference="Loh-GA-KS7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="XOI-O3-CVS"/>
+                                <include reference="fgV-gT-W4T"/>
+                                <include reference="BYE-fY-8c7"/>
+                                <include reference="ITX-mN-C7A"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="recordingInProgress" destination="Loh-GA-KS7" id="VaH-1h-zth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="microphone" width="100" height="100"/>
+    </resources>
 </document>

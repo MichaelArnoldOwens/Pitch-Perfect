@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         //TODO: Record user's voice
         recordingInProgress.hidden = false
     }
+    
+    @IBAction func stopRecordAudio(sender: UIButton) {
+        recordingInProgress.hidden = true
+    }
 
 }
 

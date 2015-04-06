@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="recordingInProgress" destination="Loh-GA-KS7" id="VaH-1h-zth"/>
+                        <outlet property="stopRecordAudio" destination="cNH-Co-JAt" id="geJ-cC-vzs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         //sets background color to blue
-        self.view.backgroundColor = UIColor.blueColor()
+//        self.view.backgroundColor = UIColor.blueColor()
 
         //hide stop button
         stopRecordAudio.hidden = true

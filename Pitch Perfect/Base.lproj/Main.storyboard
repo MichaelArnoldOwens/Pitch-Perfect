@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zep-UL-ng4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="iU7-iK-xZW">
+            <objects>
+                <viewController id="MF1-a0-erl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kzL-Sh-mQn"/>
+                        <viewControllerLayoutGuide type="bottom" id="M88-5b-VUB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wdF-hM-nNk">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omS-8V-YPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="290"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -38,10 +55,11 @@
                                 </state>
                                 <connections>
                                     <action selector="stopRecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1Dp-tO-Zwm"/>
+                                    <segue destination="MF1-a0-erl" kind="show" id="dUS-B6-SND"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Loh-GA-KS7" secondAttribute="centerX" id="BYE-fY-8c7"/>
                             <constraint firstAttribute="centerX" secondItem="cNH-Co-JAt" secondAttribute="centerX" id="Ckh-0N-PgI"/>
@@ -81,6 +99,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="yus-MU-nSr"/>
                     <connections>
                         <outlet property="recordButton" destination="OPo-Je-q4t" id="4mW-X4-Eoe"/>
                         <outlet property="recordingInProgress" destination="Loh-GA-KS7" id="VaH-1h-zth"/>
@@ -89,6 +108,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1020" y="290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DY9-z8-Aa3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zep-UL-ng4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zt1-r5-E6R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="5j9-Js-QF4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pDe-VL-rIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247.5" y="290"/>
         </scene>
     </scenes>
     <resources>

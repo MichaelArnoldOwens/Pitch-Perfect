@@ -87,7 +87,10 @@ class PlaySoundsViewController: UIViewController {
     //play original audio
     @IBAction func playbackNormal(sender: AnyObject) {
         audioPlayer.stop() //stop the audio player
+    
         audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
+        audioPlayer.rate = 1
+        
         audioPlayer.play() //play the audio player
     }
     @IBAction func playbackStop(sender: AnyObject) {

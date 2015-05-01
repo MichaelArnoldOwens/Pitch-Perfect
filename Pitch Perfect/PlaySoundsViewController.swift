@@ -31,26 +31,19 @@ class PlaySoundsViewController: UIViewController {
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
     
-    //plays slow audio
-    @IBAction func playbackSlow(sender: AnyObject) {
+//###########################
+//PLAYBACK_FUNCTIONS_BEGIN
+//###########################
+    //changes rate of audio playback
+    func playAudioWithVariableRate(rate: Float){
+        audioPlayer.stop() //stops the player
+        audioEngine.stop() //stops the engine
+        audioEngine.reset() //resets all the audio nodes in the engine
         
-        audioPlayer.stop() //stops audio player
-        audioPlayer.rate = 0.5 //sets playback rate to 1/2 speed
         audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
-        audioPlayer.play() //plays the audio
-    }
-    
-    //play fast audio
-    @IBAction func playbackFast(sender: AnyObject) {
-        audioPlayer.stop() //stops audio player
-        audioPlayer.rate = 2.0 //sets playback rate to 2x speed
-        audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
-        audioPlayer.play() //plays the audio
-    }
-    
-    //plays 'chipmunk' (high pitch) audio
-    @IBAction func playbackChipmunk(sender: AnyObject) {
-        playAudioWithVariablePitch(1000) //pitch is set to 1000
+        audioPlayer.rate = rate //sets playback rate to rate
+        audioPlayer.play()
+        
     }
     
     //changes pitch of audio playback
@@ -78,6 +71,39 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayerNode.play()
     }
+//###########################
+//PLAYBACK_FUNCTIONS_END
+//###########################
+
+    
+//###########################
+//VARIABLE_RATE_BUTTONS_BEGIN
+//###########################
+    //plays slow audio
+    @IBAction func playbackSlow(sender: AnyObject) {
+       playAudioWithVariableRate(0.5)
+    }
+    
+    //play fast audio
+    @IBAction func playbackFast(sender: AnyObject) {
+        playAudioWithVariableRate(2)
+    }
+    
+    @IBAction func playbackNormal(sender: AnyObject) {
+        playAudioWithVariableRate(1)
+    }
+//###########################
+//VARIABLE_RATE_BUTTONS_END
+//###########################
+    
+    
+//###########################
+//VARIABLE_PITCH_BUTTONS_BEGIN
+//###########################
+    //plays 'chipmunk' (high pitch) audio
+    @IBAction func playbackChipmunk(sender: AnyObject) {
+        playAudioWithVariablePitch(1000) //pitch is set to 1000
+    }
     
     //play 'darthvader' (low pitch) audio
     @IBAction func playbackDarthvader(sender: AnyObject) {
@@ -85,21 +111,11 @@ class PlaySoundsViewController: UIViewController {
     }
     
     //play original audio
-    @IBAction func playbackNormal(sender: AnyObject) {
-        audioPlayer.stop() //stop the audio player
-    
-        audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
-        audioPlayer.rate = 1
-        
-        audioPlayer.play() //play the audio player
-    }
-    @IBAction func playbackStop(sender: AnyObject) {
+        @IBAction func playbackStop(sender: AnyObject) {
         audioPlayer.stop() //stop playback
     }
+//###########################
+//VARIABLE_PITCH_BUTTONS_BEGIN
+//###########################
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
-    
+
     @IBOutlet weak var tapToRecordLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var recordingInProgress: UILabel!
@@ -19,6 +19,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     //declaring global variables
     var audioRecorder:AVAudioRecorder! //audio recorder
     var recordedAudio:RecordedAudio! //recorded audio will be stored here
+    //TODO: use an initializer, and this initializer is called in RecordSoundsViewController
+    //TODO: The app allows users to pause and resume recording.
+    //TODO: The app showcases at least one additional audio effect, such as echo or reverb.
+
+
 
     
     override func viewDidLoad() {

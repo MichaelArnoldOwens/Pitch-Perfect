@@ -10,7 +10,8 @@ import UIKit
 import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
-
+    
+    //declaring global variables, audio player, audio recorder, audio engine
     var audioPlayer:AVAudioPlayer!
     var receivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
@@ -18,76 +19,79 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-//            let fileUrl = NSURL.fileURLWithPath(filePath)
-//            
-//        } else {
-//            println("filepath is empty")
-//        }
         
+        //instantiating audio player
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
-        audioPlayer.enableRate = true
+        audioPlayer.enableRate = true //allowing rate changes to the audio
         
+        //instantiating the audio engine
         audioEngine = AVAudioEngine()
+        
+        //defining the audio file with receivedAudio from previous view
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
-
+    
+    //plays slow audio
     @IBAction func playbackSlow(sender: AnyObject) {
-        //play slow audio
-        audioPlayer.stop()
-        audioPlayer.rate = 0.5
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
-    }
-    
-    @IBAction func playbackFast(sender: AnyObject) {
-        //play fast audio
-        audioPlayer.stop()
-        audioPlayer.rate = 2.0
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
-    }
-    
-    
-    @IBAction func playbackChipmunk(sender: AnyObject) {
-        playAudioWithVariablePitch(1000)
-    }
-    
-    
-    func playAudioWithVariablePitch(pitch: Float){
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
         
+        audioPlayer.stop() //stops audio player
+        audioPlayer.rate = 0.5 //sets playback rate to 1/2 speed
+        audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
+        audioPlayer.play() //plays the audio
+    }
+    
+    //play fast audio
+    @IBAction func playbackFast(sender: AnyObject) {
+        audioPlayer.stop() //stops audio player
+        audioPlayer.rate = 2.0 //sets playback rate to 2x speed
+        audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
+        audioPlayer.play() //plays the audio
+    }
+    
+    //plays 'chipmunk' (high pitch) audio
+    @IBAction func playbackChipmunk(sender: AnyObject) {
+        playAudioWithVariablePitch(1000) //pitch is set to 1000
+    }
+    
+    //changes pitch of audio playback
+    func playAudioWithVariablePitch(pitch: Float){
+        audioPlayer.stop() //stops the player
+        audioEngine.stop() //stops the engine
+        audioEngine.reset() //resets all the audio nodes in the engine
+        
+        
+        // #instantiates audio player node
+        // #audio nodes are used to generate audio signals, process them, and perform audio input and output
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
+        // instantiate AVAudioUnitTimePitch
         var changePitchEffect = AVAudioUnitTimePitch()
-        changePitchEffect.pitch = pitch
-        audioEngine.attachNode(changePitchEffect)
+        changePitchEffect.pitch = pitch //changing pitch to function parameter pitch
+        audioEngine.attachNode(changePitchEffect) //attaching the changePitchEffect audio node
         
-        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
-        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil) //connect the audioPlayerNode to the changePitchEffect node
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil) //connect the changePitchEffect node to audioEngine output
         
-        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil) //schedule playing audio file
+        audioEngine.startAndReturnError(nil) //start the audio engine
         
         audioPlayerNode.play()
     }
     
+    //play 'darthvader' (low pitch) audio
     @IBAction func playbackDarthvader(sender: AnyObject) {
         playAudioWithVariablePitch(-1000)
     }
     
-    
+    //play original audio
     @IBAction func playbackNormal(sender: AnyObject) {
-        //playback audio at normal speed
-        audioPlayer.stop()
-        audioPlayer.currentTime = 0.0
-        audioPlayer.play()
+        audioPlayer.stop() //stop the audio player
+        audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
+        audioPlayer.play() //play the audio player
     }
     @IBAction func playbackStop(sender: AnyObject) {
-        audioPlayer.stop()
+        audioPlayer.stop() //stop playback
     }
     
     

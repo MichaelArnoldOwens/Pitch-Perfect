@@ -31,15 +31,15 @@ class PlaySoundsViewController: UIViewController {
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
     
-//###########################
-//PLAYBACK_FUNCTIONS_BEGIN
-//###########################
-    //changes rate of audio playback
-    func playAudioWithVariableRate(rate: Float){
+    func stopAndResetAudioPlayerEngine(){
         audioPlayer.stop() //stops the player
         audioEngine.stop() //stops the engine
         audioEngine.reset() //resets all the audio nodes in the engine
-        
+    }
+
+    //changes rate of audio playback
+    func playAudioWithVariableRate(rate: Float){
+        stopAndResetAudioPlayerEngine()
         audioPlayer.currentTime = 0.0 //sets current time in audio to the beginning
         audioPlayer.rate = rate //sets playback rate to rate
         audioPlayer.play()
@@ -71,20 +71,8 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayerNode.play()
     }
-    //working on it
-//    //play audio with reverb
-//    func loadFactoryPreset(preset: AVAudioUnitReverbPreset) {
-//        let unitReverb = AVAudioUnitReverb()
-//    }
-
-//###########################
-//PLAYBACK_FUNCTIONS_END
-//###########################
-
     
-//###########################
-//VARIABLE_RATE_BUTTONS_BEGIN
-//###########################
+
     //plays slow audio
     @IBAction func playbackSlow(sender: AnyObject) {
        playAudioWithVariableRate(0.5)
@@ -98,14 +86,7 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playbackNormal(sender: AnyObject) {
         playAudioWithVariableRate(1)
     }
-//###########################
-//VARIABLE_RATE_BUTTONS_END
-//###########################
-    
-    
-//###########################
-//VARIABLE_PITCH_BUTTONS_BEGIN
-//###########################
+
     //plays 'chipmunk' (high pitch) audio
     @IBAction func playbackChipmunk(sender: AnyObject) {
         playAudioWithVariablePitch(1000) //pitch is set to 1000
@@ -116,12 +97,8 @@ class PlaySoundsViewController: UIViewController {
         playAudioWithVariablePitch(-1000)
     }
     
-    //play original audio
+    //stop audio
         @IBAction func playbackStop(sender: AnyObject) {
         audioPlayer.stop() //stop playback
     }
-//###########################
-//VARIABLE_PITCH_BUTTONS_BEGIN
-//###########################
-    
 }

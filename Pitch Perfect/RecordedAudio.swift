@@ -10,8 +10,11 @@ import Foundation
 
 //class definition for Recorded Audio
 class RecordedAudio: NSObject{
+    //defining variables
     var filePathUrl: NSURL!
     var title: String!
+    
+    //initializer
     init(title: String, filePath: NSURL){
         self.title = title
         self.filePathUrl = filePath

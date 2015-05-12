@@ -5,13 +5,14 @@
 //  Created by Michael Owens on 4/5/15.
 //  Copyright (c) 2015 Michael. All rights reserved.
 //
+//TODO: showcases at least one additional audio effect, such as echo or reverb.
+
 
 import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var tapToRecordLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var recordingInProgress: UILabel!
     @IBOutlet weak var stopRecordAudio: UIButton!
@@ -22,7 +23,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder:AVAudioRecorder! //audio recorder
     var recordedAudio:RecordedAudio! //recorded audio will be stored here
     var isPaused = false
-    //TODO: showcases at least one additional audio effect, such as echo or reverb.
 
 
 
@@ -37,21 +37,24 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        //reveal status button named 'recordingInProgress'
+        recordingInProgress.hidden = false
+        recordingInProgress.text = "Tap to Record"
+        
         //hide stop button
         stopRecordAudio.hidden = true
         pauseOutlet.hidden = true
-        nextPageOutlet.hidden = true
-
     }
     
     @IBAction func recordAudio(sender: UIButton) {
         //Record user's voice
-        tapToRecordLabel.hidden = true
         recordingInProgress.hidden = false
+        recordingInProgress.text = "Recording"
+        
         stopRecordAudio.hidden = false
         recordButton.enabled = false
         pauseOutlet.hidden = false
-        nextPageOutlet.hidden = true
         
         //setting the path
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
@@ -82,10 +85,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if(self.isPaused == false){
             audioRecorder.pause()
             self.isPaused = true
+            recordingInProgress.text = "Paused Recording"
         }
         else {
             self.isPaused = false
             audioRecorder.record()
+            recordingInProgress.text = "Recording"
         }
         
 
@@ -96,8 +101,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         if(flag) {
             //initializing recordedAudio, setting path and title
             recordedAudio = RecordedAudio(title: recorder.url.lastPathComponent!, filePath: recorder.url)
-            recordedAudio.filePathUrl = recorder.url
-            recordedAudio.title = recorder.url.lastPathComponent
+            
+            //move to second scene aka perform segue
+            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)//recordedaudio is being sent
         } else {
             println("recording unsuccessful")
             recordButton.enabled = true
@@ -117,11 +123,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func stopRecordAudio(sender: UIButton) {
         //reveal text label notification "Tap to Record"
-        tapToRecordLabel.hidden = false
-        nextPageOutlet.hidden = false
+        recordingInProgress.text = "Tap to Record"
         
         //hide recording in progress text label and stop button
-        recordingInProgress.hidden = true
         stopRecordAudio.hidden = true
         
         //re-enable record button
@@ -131,13 +135,18 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.stop()
         var audioSession = AVAudioSession.sharedInstance()
         audioSession.setActive(false, error: nil)
+    }
+    
+    @IBAction func startOver(sender: AnyObject) {
+        //reveal text label notification "Tap to Record"
+        recordingInProgress.text = "Tap to Record"
         
-    }
-
-    //button to move to the next view and also sends audio data
-    @IBAction func nextPageButton(sender: AnyObject) {
-        //move to second scene aka perform segue
-        self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)//recordedaudio is being sent
-    }
+        //hide recording in progress text label and stop button
+        stopRecordAudio.hidden = true
+        
+        //re-enable record button
+        recordButton.enabled = true
+        }
+    
 }
 

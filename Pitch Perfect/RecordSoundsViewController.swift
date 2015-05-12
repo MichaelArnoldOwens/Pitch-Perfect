@@ -15,10 +15,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var recordingInProgress: UILabel!
     @IBOutlet weak var stopRecordAudio: UIButton!
+    @IBOutlet weak var pauseOutlet: UIButton!
     
     //declaring global variables
     var audioRecorder:AVAudioRecorder! //audio recorder
     var recordedAudio:RecordedAudio! //recorded audio will be stored here
+    var isPaused = false
     //TODO: use an initializer, and this initializer is called in RecordSoundsViewController
     //TODO: The app allows users to pause and resume recording.
     //TODO: The app showcases at least one additional audio effect, such as echo or reverb.
@@ -38,6 +40,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewWillAppear(animated: Bool) {
         //hide stop button
         stopRecordAudio.hidden = true
+        pauseOutlet.hidden = true
 
     }
     
@@ -47,6 +50,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         recordingInProgress.hidden = false
         stopRecordAudio.hidden = false
         recordButton.enabled = false
+        pauseOutlet.hidden = false
         
         //setting the path
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
@@ -70,6 +74,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
+    }
+    
+    //pause and resume recording audio
+    @IBAction func pauseRecordAudio(sender: AnyObject) {
+        if(self.isPaused == false){
+            audioRecorder.pause()
+            self.isPaused = true
+        }
+        else {
+            self.isPaused = false
+            audioRecorder.record()
+        }
+        
+
+        
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {

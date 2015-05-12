@@ -35,6 +35,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
+        super.viewWillAppear(animated)
+        
         //reveal status button named 'recordingInProgress'
         recordingInProgress.hidden = false
         recordingInProgress.text = "Tap to Record"
@@ -141,6 +143,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         //re-enable record button
         recordButton.enabled = true
+        
+        //hide the pause/resume button
+        pauseOutlet.hidden = true
+        
         }
     
 }

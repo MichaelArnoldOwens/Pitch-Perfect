@@ -226,6 +226,15 @@
                                     <action selector="pauseRecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6XG-Ls-6mA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ztc-z2-t3A">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextPageButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bmR-oH-9t3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -234,9 +243,11 @@
                             <constraint firstItem="Loh-GA-KS7" firstAttribute="top" secondItem="OPo-Je-q4t" secondAttribute="bottom" constant="8" id="ITX-mN-C7A"/>
                             <constraint firstAttribute="centerY" secondItem="OPo-Je-q4t" secondAttribute="centerY" id="XOI-O3-CVS"/>
                             <constraint firstAttribute="centerX" secondItem="3Gk-Rx-mP0" secondAttribute="centerX" id="afp-2e-z8Y"/>
+                            <constraint firstAttribute="centerY" secondItem="Ztc-z2-t3A" secondAttribute="centerY" id="bxV-Yq-5Kf"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cNH-Co-JAt" secondAttribute="bottom" constant="8" id="eaK-oL-SZ7"/>
                             <constraint firstAttribute="centerX" secondItem="OPo-Je-q4t" secondAttribute="centerX" id="fgV-gT-W4T"/>
                             <constraint firstAttribute="centerX" secondItem="ioz-8x-Jof" secondAttribute="centerX" constant="-0.5" id="fve-83-dwk"/>
+                            <constraint firstItem="Ztc-z2-t3A" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ke6-j2-sVI"/>
                             <constraint firstItem="ioz-8x-Jof" firstAttribute="top" secondItem="Loh-GA-KS7" secondAttribute="bottom" constant="8" id="lhg-zs-Ld2"/>
                             <constraint firstItem="OPo-Je-q4t" firstAttribute="top" secondItem="3Gk-Rx-mP0" secondAttribute="bottom" constant="8" id="mdN-5J-XI8"/>
                         </constraints>
@@ -247,12 +258,15 @@
                                 <exclude reference="cNH-Co-JAt"/>
                                 <exclude reference="3Gk-Rx-mP0"/>
                                 <exclude reference="ioz-8x-Jof"/>
+                                <exclude reference="Ztc-z2-t3A"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="afp-2e-z8Y"/>
                                 <exclude reference="XOI-O3-CVS"/>
                                 <exclude reference="fgV-gT-W4T"/>
                                 <exclude reference="mdN-5J-XI8"/>
+                                <exclude reference="bxV-Yq-5Kf"/>
+                                <exclude reference="ke6-j2-sVI"/>
                                 <exclude reference="BYE-fY-8c7"/>
                                 <exclude reference="ITX-mN-C7A"/>
                                 <exclude reference="fve-83-dwk"/>
@@ -282,8 +296,11 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ioz-8x-Jof"/>
+                                <include reference="Ztc-z2-t3A"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="bxV-Yq-5Kf"/>
+                                <include reference="ke6-j2-sVI"/>
                                 <include reference="fve-83-dwk"/>
                                 <include reference="lhg-zs-Ld2"/>
                             </mask>
@@ -291,6 +308,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yus-MU-nSr"/>
                     <connections>
+                        <outlet property="nextPageOutlet" destination="Ztc-z2-t3A" id="YOi-cG-TcY"/>
                         <outlet property="pauseOutlet" destination="ioz-8x-Jof" id="col-Ou-eUG"/>
                         <outlet property="recordButton" destination="OPo-Je-q4t" id="4mW-X4-Eoe"/>
                         <outlet property="recordingInProgress" destination="Loh-GA-KS7" id="VaH-1h-zth"/>
@@ -326,6 +344,7 @@
         <image name="chipmunk" width="100" height="100"/>
         <image name="darthvader" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
+        <image name="next" width="72" height="72"/>
         <image name="play" width="85" height="85"/>
         <image name="rabbit" width="100" height="100"/>
         <image name="snail" width="100" height="100"/>

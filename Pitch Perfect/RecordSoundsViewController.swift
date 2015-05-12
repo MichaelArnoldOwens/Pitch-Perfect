@@ -23,9 +23,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder:AVAudioRecorder! //audio recorder
     var recordedAudio:RecordedAudio! //recorded audio will be stored here
     var isPaused = false
-
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,8 +119,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stopRecordAudio(sender: UIButton) {
-        //reveal text label notification "Tap to Record"
-        recordingInProgress.text = "Tap to Record"
         
         //hide recording in progress text label and stop button
         stopRecordAudio.hidden = true

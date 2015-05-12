@@ -71,11 +71,11 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayerNode.play()
     }
-    
-    //play audio with reverb
-    func loadFactoryPreset(preset: AVAudioUnitReverbPreset) {
-        let unitReverb = AVAudioUnitReverb()
-    }
+    //working on it
+//    //play audio with reverb
+//    func loadFactoryPreset(preset: AVAudioUnitReverbPreset) {
+//        let unitReverb = AVAudioUnitReverb()
+//    }
 
 //###########################
 //PLAYBACK_FUNCTIONS_END

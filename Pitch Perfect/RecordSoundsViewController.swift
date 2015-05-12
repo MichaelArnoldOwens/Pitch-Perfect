@@ -22,9 +22,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder:AVAudioRecorder! //audio recorder
     var recordedAudio:RecordedAudio! //recorded audio will be stored here
     var isPaused = false
-    //TODO: use an initializer, and this initializer is called in RecordSoundsViewController
-    //TODO: The app allows users to pause and resume recording.
-    //TODO: The app showcases at least one additional audio effect, such as echo or reverb.
+    //TODO: showcases at least one additional audio effect, such as echo or reverb.
 
 
 

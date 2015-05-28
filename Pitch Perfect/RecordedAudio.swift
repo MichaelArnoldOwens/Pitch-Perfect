@@ -10,6 +10,7 @@ import Foundation
 
 //class definition for Recorded Audio
 class RecordedAudio {
+    
     //defining variables
     var filePathUrl: NSURL!
     var title: String!

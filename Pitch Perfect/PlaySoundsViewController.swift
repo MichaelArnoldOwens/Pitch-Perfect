@@ -31,6 +31,7 @@ class PlaySoundsViewController: UIViewController {
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
     }
     
+    //stops the audioPlayer and audioEngine. audioEngine is reset
     func stopAndResetAudioPlayerEngine(){
         audioPlayer.stop() //stops the player
         audioEngine.stop() //stops the engine
@@ -80,6 +81,7 @@ class PlaySoundsViewController: UIViewController {
         playAudioWithVariableRate(2)
     }
     
+    //play original audio
     @IBAction func playbackNormal(sender: AnyObject) {
         playAudioWithVariableRate(1)
     }

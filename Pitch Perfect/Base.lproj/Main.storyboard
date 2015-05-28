@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zep-UL-ng4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zep-UL-ng4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -253,16 +253,16 @@
                                 <exclude reference="r8a-9r-gFz"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="XOI-O3-CVS"/>
-                                <exclude reference="fgV-gT-W4T"/>
+                                <exclude reference="eaK-oL-SZ7"/>
                                 <exclude reference="BYE-fY-8c7"/>
                                 <exclude reference="ITX-mN-C7A"/>
+                                <exclude reference="XOI-O3-CVS"/>
+                                <exclude reference="fgV-gT-W4T"/>
+                                <exclude reference="Ckh-0N-PgI"/>
                                 <exclude reference="fve-83-dwk"/>
                                 <exclude reference="lhg-zs-Ld2"/>
                                 <exclude reference="EKF-1N-SdP"/>
                                 <exclude reference="Vm5-4X-SzK"/>
-                                <exclude reference="Ckh-0N-PgI"/>
-                                <exclude reference="eaK-oL-SZ7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -272,12 +272,12 @@
                                 <include reference="cNH-Co-JAt"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="XOI-O3-CVS"/>
-                                <include reference="fgV-gT-W4T"/>
+                                <include reference="eaK-oL-SZ7"/>
                                 <include reference="BYE-fY-8c7"/>
                                 <include reference="ITX-mN-C7A"/>
+                                <include reference="XOI-O3-CVS"/>
+                                <include reference="fgV-gT-W4T"/>
                                 <include reference="Ckh-0N-PgI"/>
-                                <include reference="eaK-oL-SZ7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
